@@ -1,0 +1,14 @@
+[Unit]
+Description=Tank Logger Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ben/tankpressure/server.py
+WorkingDirectory=/home/ben
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=ben
+
+[Install]
+WantedBy=multi-user.target
