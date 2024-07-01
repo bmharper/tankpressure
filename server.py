@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-DATABASE_PATH = '/home/ben/tank.sqlite'
+DATABASE_PATH = '/var/lib/power/tank.sqlite'
 TABLE_NAME = 'tank'
 
 
