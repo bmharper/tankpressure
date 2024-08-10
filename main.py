@@ -46,10 +46,7 @@ blink(10, 50)
 adc = ADC(Pin(26))
 
 
-def read_adc_and_send():
-    # Read ADC value
-    adc_value = adc.read_u16()
-
+def send_pressure(adc_value):
     # Create the URL
     url = f'http://{server_addr}:{server_port}/pressure/{adc_value}'
 
@@ -64,6 +61,13 @@ def read_adc_and_send():
 
 
 while True:
-    read_adc_and_send()
+    # Take 30 measurements 1 second apart, and send the median value
+    measures = []
+    for i in range(30):
+        measures.append(adc.read_u16())
+        utime.sleep(1)
+
+    median = sorted(measures)[len(measures) // 2]
+    send_pressure(median)
     blink(6, 30)
     utime.sleep(5 * 60)  # Delay between readings
