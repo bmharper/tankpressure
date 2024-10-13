@@ -20,7 +20,7 @@ value to another server via HTTP.
 2. Download the MicroPython `.u2f` file from https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
 3. Install that `.u2f` file by using the bootsel button an copying the file to the Pico W mass storage
 4. Use `thonny` to install `main.py` onto the Pico W. You need to copy `main.py` onto the firmware of the device.
-   A. Connect the Pico while holding down the bootsel button
+   A. Connect the Pico without holding down the bootsel button, and Thonny should detect it.
    B. Open Thonny, and from the `File > Open` menu, open `main.py`
    C. The file `File > Save copy` menu, and choose to save a copy onto the Pico. Name it `main.py`
    D. NOTE! Thonny might want to overwrite the firmware. Don't let it! When I did that, it
